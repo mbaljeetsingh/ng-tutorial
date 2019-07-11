@@ -1,1 +1,20 @@
-<p>todos works!</p>
+<div class="todos">
+  <form #f="ngForm" (ngSubmit)="onCreateTodo(f)">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Todo Name"
+        value="My Todo"
+        name="name"
+        ngModel
+      />
+    </mat-form-field>
+    <button mat-button type="submit">Create</button>
+  </form>
+
+  <mat-list role="list">
+    <mat-list-item role="listitem">Item 1</mat-list-item>
+    <mat-list-item role="listitem">Item 2</mat-list-item>
+    <mat-list-item role="listitem">Item 3</mat-list-item>
+  </mat-list>
+</div>
