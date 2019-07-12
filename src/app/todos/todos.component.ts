@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from '../reducers';
 
 @Component({
   selector: 'app-todos',
@@ -6,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
-  constructor() {}
+  todos$;
+  constructor(private store: Store<State>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.todos$ = this.store.select(state => state.todos);
+  }
 
   onCreateTodo(todo) {
     console.log(todo.value);
