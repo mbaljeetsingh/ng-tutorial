@@ -6,7 +6,7 @@ export interface State {
   readonly title: string;
   readonly completed: boolean;
 }
-// Todo: Type should be State or State[]
+// TODO: Type should be State or State[]
 export const initialState: State[] = [
   {
     id: 1,
@@ -26,7 +26,7 @@ export const initialState: State[] = [
 ];
 
 const todosReducer = createReducer(
-  initialState as any,
+  initialState as any, // TODO Fix any type
 
   on(TodosActions.loadTodos, state => state),
   on(TodosActions.createTodo, (state, { payload }) => {
