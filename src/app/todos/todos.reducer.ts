@@ -32,6 +32,9 @@ const todosReducer = createReducer(
   on(TodosActions.createTodo, (state, { payload }) => {
     console.log(payload);
     return [...state, payload];
+  }),
+  on(TodosActions.deleteTodo, (state, { payload }) => {
+    return state.filter(todo => todo !== payload);
   })
 );
 

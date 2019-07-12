@@ -6,3 +6,8 @@ export const createTodo = createAction(
   '[Todos] Create Todo',
   props<{ payload: State }>()
 );
+
+export const deleteTodo = createAction(
+  '[Todos] Delete Todo',
+  props<{ payload: State }>()
+);

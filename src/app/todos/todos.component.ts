@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../reducers';
-import { createTodo } from './todos.actions';
+import { createTodo, deleteTodo } from './todos.actions';
 
 @Component({
   selector: 'app-todos',
@@ -29,5 +29,9 @@ export class TodosComponent implements OnInit {
 
   onCreateTodo() {
     this.store.dispatch(createTodo({ payload: this.todo }));
+  }
+
+  onDelete(todo) {
+    this.store.dispatch(deleteTodo({ payload: todo }));
   }
 }
