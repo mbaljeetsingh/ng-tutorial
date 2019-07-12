@@ -28,7 +28,11 @@ export const initialState: State[] = [
 const todosReducer = createReducer(
   initialState,
 
-  on(TodosActions.loadTodoss, state => state)
+  on(TodosActions.loadTodos, state => state),
+  on(TodosActions.createTodo, (state, { payload }) => {
+    console.log(payload);
+    return [...state, payload];
+  })
 );
 
 export function reducer(state: State[] | undefined, action: Action) {

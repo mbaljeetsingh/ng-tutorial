@@ -1,19 +1,19 @@
 <div class="todos">
-  <form #f="ngForm" (ngSubmit)="onCreateTodo(f)">
+  <form #f="ngForm" (ngSubmit)="onCreateTodo()">
     <mat-form-field>
       <input
         matInput
         placeholder="Todo Name"
         value="My Todo"
         name="title"
-        ngModel
+        [(ngModel)]="todo.title"
       />
     </mat-form-field>
     <button mat-button type="submit">Create</button>
   </form>
 
   <mat-list role="list">
-    <mat-list-item role="listitem" *ngFor="let todo of todos$"
+    <mat-list-item role="listitem" *ngFor="let todo of todos$ | async"
       >{{ todo.id }} - {{ todo.title }}</mat-list-item
     >
   </mat-list>
